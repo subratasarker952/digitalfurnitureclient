@@ -33,7 +33,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("https://digitalfurnitureserver.vercel.app/products"),
       },
       {
         path: "/products/:id",
