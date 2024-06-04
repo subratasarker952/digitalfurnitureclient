@@ -7,7 +7,7 @@ const AllReview = () => {
     const [reviews, setReviews] = useState([]);
     console.log(reviews)
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews/me/${user?.email}`)
+    fetch(`https://digitalfurnitureserver.vercel.app/reviews/me/${user?.email}`)
       .then((response) => response.json())
       .then((json) => setReviews(json));
   }, [reviews, user]);

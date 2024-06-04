@@ -22,7 +22,7 @@ const AddProduct = () => {
     };
     const sure = window.confirm("Are you sure Product save to db?");
     if (sure) {
-      fetch("http://localhost:3000/products", {
+      fetch("https://digitalfurnitureserver.vercel.app/products", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

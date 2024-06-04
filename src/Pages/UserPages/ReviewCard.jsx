@@ -8,7 +8,7 @@ const ReviewCard = ({ review }) => {
   const handleDelete = (r) => {
     const sure = window.confirm("Are You Sure? Delete " + r?.title);
     if (sure) {
-      fetch(`http://localhost:3000/reviews/${r?._id}`, {
+      fetch(`https://digitalfurnitureserver.vercel.app/reviews/${r?._id}`, {
         method: "DELETE",
         headers:{
           'content-type':"application/json",

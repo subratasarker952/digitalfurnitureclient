@@ -11,7 +11,7 @@ const SingleBlog = () => {
     const handleDelete = (b) => {
         const sure = window.confirm("Are You Sure? Delete " + b?.title);
         if (sure) {
-          fetch(`http://localhost:3000/blogs/${b?._id}`, {
+          fetch(`https://digitalfurnitureserver.vercel.app/blogs/${b?._id}`, {
             method: "DELETE",
             headers:{
               'content-type':"application/json",

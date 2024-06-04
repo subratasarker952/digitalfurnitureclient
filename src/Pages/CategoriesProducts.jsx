@@ -5,7 +5,7 @@ const CategoriesProducts = () => {
   const products = useLoaderData();
   return (
     <div>
-      <div className="flex gap-2 flex-wrap">
+      <div className=" grid grid-clos-1 md:grid-cols-3 gap-3">
         {products.map((p) => (
           <ProductCardUser key={p._id} product={p}></ProductCardUser>
         ))}

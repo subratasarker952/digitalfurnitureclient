@@ -19,7 +19,7 @@ const UpdateReview = () => {
     };
     const sure = window.confirm("Are you sure Update Product information?");
     if (sure) {
-      fetch(`http://localhost:3000/reviews/${_id}`, {
+      fetch(`https://digitalfurnitureserver.vercel.app/reviews/${_id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

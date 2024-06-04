@@ -24,7 +24,7 @@ const UpdateProduct = () => {
     };
     const sure = window.confirm("Are you sure Update Product information?");
     if (sure) {
-      fetch(`http://localhost:3000/products/${loadedProduct?._id}`, {
+      fetch(`https://digitalfurnitureserver.vercel.app/products/${loadedProduct?._id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

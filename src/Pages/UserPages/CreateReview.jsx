@@ -21,7 +21,7 @@ const CreateReview = () => {
     };
     const sure = window.confirm("Are you sure blog save to db?");
     if (sure) {
-      fetch("http://localhost:3000/reviews", {
+      fetch("https://digitalfurnitureserver.vercel.app/reviews", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

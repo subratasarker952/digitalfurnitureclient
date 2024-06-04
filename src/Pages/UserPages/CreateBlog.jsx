@@ -25,7 +25,7 @@ const CreateBlog = () => {
     };
     const sure = window.confirm("Are you sure blog save to db?");
     if (sure) {
-      fetch("http://localhost:3000/blogs", {
+      fetch("https://digitalfurnitureserver.vercel.app/blogs", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

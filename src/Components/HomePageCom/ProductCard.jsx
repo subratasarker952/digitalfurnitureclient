@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   const handleDelete = (p) => {
     const sure = window.confirm("Are You Sure? Delete " + p?.title);
     if (sure) {
-      fetch(`http://localhost:3000/products/${p?._id}`, {
+      fetch(`https://digitalfurnitureserver.vercel.app/products/${p?._id}`, {
         method: "DELETE",
         headers:{
           'content-type':"application/json",
@@ -27,13 +27,13 @@ const ProductCard = ({ product }) => {
   return (
     <div>
       <div className="card bg-base-100 shadow-xl">
-        <figure className="w-[300px]">
-          <img src={img} alt="Shoes" className="rounded-xl" />
+        <figure className="w-full my-3">
+          <img src={img} alt="Shoes"  className="rounded-xl w-[250px] h-[300px]" />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>
           <h2 className="card-title">{price}</h2>
-          <p>{description}</p>
+          {/* <p>{description}</p> */}
           <div className="card-actions">
             <Link
               to={`/dashboard/allProducts/${_id}`}

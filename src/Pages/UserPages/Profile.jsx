@@ -8,7 +8,7 @@ const Profile = () => {
   const [disabled, setDisabled] = useState(false);
   const [userInDb, setUserInDb] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:3000/users/${user?.email}`)
+    fetch(`https://digitalfurnitureserver.vercel.app/users/${user?.email}`)
       .then((response) => response.json())
       .then((json) => setUserInDb(json));
   }, [user]);
