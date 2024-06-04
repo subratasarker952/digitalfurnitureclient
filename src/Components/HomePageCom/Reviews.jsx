@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`https://digitalfurnitureserver.vercel.app/reviews`)
+    fetch("https://digitalfurnitureserver.vercel.app/reviews")
       .then((response) => response.json())
       .then((json) => setReviews(json));
   }, [reviews]);
@@ -18,11 +18,7 @@ const Reviews = () => {
             reviews.map((review) => (
               <div key={review._id} className="w-full">
                 <div className="w-[500px] min-h-[500px]  flex flex-col justify-between rounded-lg  bg-white">
-                  <p>
-                    <span className="text-5xl text-slate-400">"</span>
-                    {review?.description}
-                    <span className="text-5xl text-slate-400">"</span>
-                  </p>
+                  <p>{review?.description}</p>
 
                   <div className="flex justify-center my-10">
                     <img
