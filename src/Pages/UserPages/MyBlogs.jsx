@@ -13,7 +13,7 @@ const MyBlogs = () => {
   return (
     <div>
       <div className="flex gap-3 flex-wrap">
-        {blogs.map((blog) => (
+        {blogs && blogs.map((blog) => (
           <BlogCard key={blog._id} blog={blog}></BlogCard>
         ))}
       </div>

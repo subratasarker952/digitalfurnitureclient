@@ -12,7 +12,7 @@ const AllProducts = () => {
     <div>
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          {products.map((product) => (
+          {products && products.map((product) => (
             <ProductCard key={product._id} product={product}></ProductCard>
           ))}
         </div>

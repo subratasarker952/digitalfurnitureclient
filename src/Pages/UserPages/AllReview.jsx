@@ -14,7 +14,7 @@ const AllReview = () => {
   return (
     <div>
       <div className="flex gap-3 flex-wrap">
-        {reviews.map((review) => (
+        {reviews && reviews.map((review) => (
           <ReviewCard key={review._id} review={review}></ReviewCard>
         ))}
       </div>

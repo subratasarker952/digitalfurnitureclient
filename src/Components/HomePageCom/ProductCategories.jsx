@@ -15,7 +15,7 @@ const ProductCategories = () => {
       </h2>
       <dir className="mx-auto">
         <div className="flex gap-3 flex-wrap">
-          {categories.map((category) => (
+          {categories && categories.map((category) => (
             <CategoryCard key={category._id} category={category}></CategoryCard>
           ))}
         </div>
