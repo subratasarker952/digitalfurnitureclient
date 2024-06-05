@@ -24,6 +24,7 @@ import SingleReview from "../Pages/UserPages/SingleReview";
 import AllReview from "../Pages/UserPages/AllReview";
 import UpdateReview from "../Pages/UserPages/UpdateReview";
 import MyBlogs from "../Pages/UserPages/MyBlogs";
+import UpdateBlog from "../Pages/UserPages/UpdateBlog";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,13 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
+        
+      },
+      {
+        path: "/blogs/:id",
+        element: <SingleBlog />,
+        loader: ({ params }) => 
+          fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
       },
       {
         path: "/login",
@@ -126,6 +134,12 @@ const router = createBrowserRouter([
       {
         path: "blogs/:id",
         element: <SingleBlog />,
+        loader: ({ params }) => 
+          fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
+      },
+      {
+        path: "editBlog/:id",
+        element: < UpdateBlog/>,
         loader: ({ params }) => 
           fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
       },

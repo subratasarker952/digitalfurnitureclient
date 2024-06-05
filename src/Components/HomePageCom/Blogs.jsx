@@ -14,7 +14,7 @@ const Blogs = () => {
       <h2 className="m-5 text-center text-green-300 text-3xl">Blogs</h2>
       <div>
         <div>
-          <div className="flex gap-3 flex-wrap">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {blogs &&
               blogs.slice(0, 3).map((blog) => (
                 <BlogCard key={blog._id} blog={blog}></BlogCard>

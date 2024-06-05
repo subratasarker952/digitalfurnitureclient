@@ -9,7 +9,7 @@ const AllReview = () => {
     fetch(`https://digitalfurnitureserver.vercel.app/reviews/me/${user?.email}`)
       .then((response) => response.json())
       .then((json) => setReviews(json));
-  }, [reviews, user]);
+  }, [reviews, user?.email]);
   return (
     <div>
       <div className="flex gap-3 flex-wrap">

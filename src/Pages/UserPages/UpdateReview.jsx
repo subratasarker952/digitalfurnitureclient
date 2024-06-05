@@ -31,7 +31,7 @@ const UpdateReview = () => {
         .then((data) => {
           console.log(data)
           if (data.modifiedCount > 0) {
-            toast.success("Product Updated");
+            toast.success("Review Updated");
             navigate("/dashboard/reviews");
           }
           else if(data.message){
@@ -45,63 +45,22 @@ const UpdateReview = () => {
       <div className="my-10">
         <div className="card shrink-0 w-full max-w-lg mx-auto shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleForm}>
-            {/* title */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Product Title</span>
-              </label>
-              <input
-                type="text"
-                name="title"
-                defaultValue={title}
-                placeholder="Product title"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            {/* price */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Product Price</span>
-              </label>
-              <input
-                type="text"
-                name="price"
-                defaultValue={price}
-                placeholder="Product Price"
-                className="input input-bordered"
-                required
-              />
-            </div>
+        
             {/* description */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Product Description</span>
+                <span className="label-text">Review Edit</span>
               </label>
-              <input
+              <textarea
                 type="text"
                 name="description"
                 defaultValue={description}
-                placeholder="Product Description"
-                className="input input-bordered"
+                placeholder="write a review"
+                className="input input-bordered h-[221px]"
                 required
               />
             </div>
-            {/* img */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Product Image</span>
-              </label>
-              <input
-                type="text"
-                name="img"
-                defaultValue={img}
-                placeholder="Product Image Url"
-                className="input input-bordered"
-                required
-              />
-            </div>
-
+        
             <div className="form-control mt-6">
               <button className="btn btn-primary" type="submit">
                 Update Review

@@ -38,7 +38,7 @@ const ReviewCard = ({ review }) => {
           </div>
           <div className="card-actions">
             <div className="flex justify-between">
-              <Link to={`/dashboard/updateReview/${_id}`} className="bg-green-500 text-white btn">Edit</Link>
+              <Link to={`/dashboard/reviews/update/${_id}`} className="bg-green-500 text-white btn">Edit</Link>
               <button onClick={()=>handleDelete(review)} className="bg-red-500 text-white btn">Delete</button>
             </div>
           </div>
