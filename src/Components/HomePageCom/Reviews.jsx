@@ -17,7 +17,7 @@ const Reviews = () => {
           {reviews &&
             reviews.map((review) => (
               <div key={review._id} className="w-full">
-                <div className="w-[500px] min-h-[500px]  flex flex-col justify-between rounded-lg  bg-white">
+                <div className="w-[500px] min-h-[500px]  flex flex-col p-10 justify-between rounded-lg  bg-white">
                   <p>{review?.description}</p>
 
                   <div className="flex justify-center my-10">
