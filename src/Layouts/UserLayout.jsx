@@ -1,6 +1,9 @@
 import { NavLink, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const UserLayout = () => {
+  const {logOutUser } = useAuth();
+
   const menu = (
     <>
       <NavLink className=" capitalize btn m-1" to="/">
@@ -35,10 +38,15 @@ const UserLayout = () => {
   return (
     <>
       <div className="flex ">
-        <div className="w-2/12 bg-slate-300 p-5 h-full">
-          <div className="flex flex-col gap-2">{menu}</div>
+        <div className="w-2/12 bg-slate-300 p-5 md:p-2 h-screen fixed">
+          <div className="flex flex-col gap-1 ">
+            {menu}
+            <button className="btn bg-red-500 text-white hover:text-black" onClick={() => logOutUser()}>
+              Logout
+            </button>
+          </div>
         </div>
-        <div className="w-10/12">
+        <div className="w-10/12 ml-[200px]">
           <div className="m-5">
             <Outlet />
           </div>

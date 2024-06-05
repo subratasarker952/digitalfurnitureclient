@@ -38,7 +38,7 @@ const Profile = () => {
         {userInDb?.role && <p>Role:- {userInDb?.role}</p>}
         {userInDb?.description && (
           <p>
-            description:- <br /> {userInDb?.description}
+            about your self:-  {userInDb?.description}
           </p>
         )}
       </div>

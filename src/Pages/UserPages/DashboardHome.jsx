@@ -1,61 +1,29 @@
 import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
 
 const DashboardHome = () => {
-  const { user, passwordReset } = useAuth();
-  const [disabled, setDisabled] = useState(false);
-  const [userInDb, setUserInDb] = useState(null);
+  const [states, setStates] = useState({});
   useEffect(() => {
-    fetch(`https://digitalfurnitureserver.vercel.app/users/${user?.email}`)
+    fetch(`https://digitalfurnitureserver.vercel.app/states`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        authorization: `barer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((response) => response.json())
-      .then((json) => setUserInDb(json));
-  }, [user]);
-  const handlePasswordReset = () => {
-    const sure = window.confirm("Are You Sure? Change Your Password?");
-    if (sure) {
-      passwordReset(user?.email)
-        .then(() => {
-          setDisabled(true);
-          toast.success("Password rest mail sent please Email");
-        })
-        .catch((error) => {
-          toast.error(error.code + error.message);
-        });
-    }
-  };
-  return (
-    <div className="flex justify-between">
-      <div className="text-2xl font-semibold capitalize">
-        {userInDb?.img && (
-          <img className="h-[200px] w-[200px]" src={userInDb?.img} alt="" />
-        )}
+      .then((json) => setStates(json));
+  }, [states]);
 
-        <p>Email:- {userInDb?.email}</p>
-        {userInDb?.displayName && <p>displayName:- {userInDb?.displayName}</p>}
-        {userInDb?.age && <p>age:- {userInDb?.age} Years</p>}
-        {userInDb?.role && <p>Role:- {userInDb?.role}</p>}
-        {userInDb?.description && (
-          <p>
-            description:- <br /> {userInDb?.description}
-          </p>
-        )}
-      </div>
-      <div className="flex flex-col gap-2">
-        <Link
-          to={`/dashboard/editProfile/${userInDb?._id}`}
-          className="btn btn-primary"
-        >
-          Edit Profile
-        </Link>
-        <button
-          disabled={disabled}
-          onClick={handlePasswordReset}
-          className="btn btn-primary"
-        >
-          Change Password
-        </button>
+  return (
+    
+    <div>
+      <div className="my-10 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="h-[200px] rounded-lg p-5 shadow-lg bg-white"><p className="text-3xl text-center"> Total BLog:- {states.blogs}</p></div>
+          <div className="h-[200px] rounded-lg p-5 shadow-lg bg-white"><p className="text-3xl text-center"> Total User:- {states.users}</p></div>
+          <div className="h-[200px] rounded-lg p-5 shadow-lg bg-white"><p className="text-3xl text-center"> Total Product:- {states.products}</p></div>
+          <div className="h-[200px] rounded-lg p-5 shadow-lg bg-white"><p className="text-3xl text-center"> Total Review:- {states.reviews}</p></div>
+        </div>
       </div>
     </div>
   );

@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 const CreateReview = () => {
   const { user } = useAuth();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
     const description = form.description.value;
-    const img = user?.photoURL;
+    const img = user?.photoURL || "https://icons.veryicon.com/png/o/miscellaneous/standard/avatar-15.png"; 
     if (!description || !img) {
       toast.error("Please Provide Information");
       return;
@@ -36,7 +36,7 @@ const CreateReview = () => {
           if (data.insertedId) {
             toast.success("Review Added");
             form.reset();
-            navigate('/dashboard/reviews')
+            navigate("/dashboard/reviews");
           } else if (data.message) {
             toast.error(data.message);
           }
@@ -51,16 +51,13 @@ const CreateReview = () => {
           <form className="card-body" onSubmit={handleForm}>
             {/* description */}
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Blog Description</span>
-              </label>
               <textarea
                 maxLength={500}
                 minLength={100}
                 type="text"
                 name="description"
                 defaultValue=""
-                placeholder="Say Something"
+                placeholder="Type Something"
                 className="input input-bordered h-[221px]"
                 required
               />

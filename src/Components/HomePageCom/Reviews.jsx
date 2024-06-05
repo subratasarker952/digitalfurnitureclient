@@ -9,10 +9,10 @@ const Reviews = () => {
   }, [reviews]);
   return (
     <div className="my-10 bg-slate-200">
-      <h3 className="text-center text-3xl text-green-500 my-10 py-10">
+      <h3 className="text-center text-3xl text-green-500 py-10">
         Reviews
       </h3>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto py-10">
         <div className="flex gap-3">
           {reviews &&
             reviews.map((review) => (

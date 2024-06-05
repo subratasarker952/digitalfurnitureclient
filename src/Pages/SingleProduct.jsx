@@ -14,7 +14,7 @@ const SingleProduct = () => {
           <h2 className="card-title">{title}</h2>
           <h2 className="card-title">{price}</h2>
           <p>{description}</p>
-          <Link to={'/dashboard/allProducts'} >GO Back</Link>          
+          <Link to={'/dashboard/allProducts'} className="btn">GO Back</Link>          
         </div>
       </div>
     </div>
