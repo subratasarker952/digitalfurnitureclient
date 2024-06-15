@@ -6,6 +6,7 @@ import FeaturedProducts from "../../Components/HomePageCom/FeaturedProducts";
 import Reviews from "../../Components/HomePageCom/Reviews";
 import Service from "../../Components/HomePageCom/Service";
 import Blogs from "../../Components/HomePageCom/Blogs";
+import Slider from "../../Components/SharedComponent/Slider";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <CallToAction />
       <Blogs />
       <Reviews />
+      <Slider/>
     </div>
   );
 };
