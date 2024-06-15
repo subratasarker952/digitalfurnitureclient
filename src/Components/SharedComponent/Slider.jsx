@@ -10,16 +10,13 @@ const Slider = ({ slides }) => {
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
-      slidesPerView={3}
+      slidesPerView={1}
       navigation
-      //   pagination={{ clickable: true }}
-      //   scrollbar={{ draggable: true }}
-      //   onSwiper={(swiper) => console.log(swiper)}
-      //   onSlideChange={() => console.log("slide change")}
+      pagination={{ clickable: true }}
     >
       {slides && slides.map(slide=> <SwiperSlide key={slide._id}>
         <div className="p-12 min-h-[500px] max-h-[600px] flex flex-col justify-between">
-                  <p>{slide?.description}</p>
+                  <p className="max-w-lg mx-auto">{slide?.description}</p>
 
                   <div className="my-10 mx-auto ">
                     <img

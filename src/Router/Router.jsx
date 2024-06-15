@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
-import SingleProduct from "../Pages/UserPages/Products/SingleProduct";
 import CategoriesProducts from "../Components/HomePageCom/CategoriesProducts";
 import AboutUs from "../Components/HomePageCom/AboutUs";
 import Contact from "../Pages/Contact/Contact";
@@ -25,6 +24,9 @@ import CreateReview from "../Pages/UserPages/Review/CreateReview";
 import AllReview from "../Pages/UserPages/Review/AllReview";
 import SingleReview from "../Pages/UserPages/Review/SingleReview";
 import UpdateReview from "../Pages/UserPages/Review/UpdateReview";
+import Products from "../Pages/Products/Products";
+import Product from "../Pages/Products/Product";
+import SingleProduct from "../Pages/UserPages/Products/SingleProduct";
 
 const router = createBrowserRouter([
   {
@@ -36,8 +38,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/products",
+        element: <Products />,
+      },
+      {
         path: "/products/:id",
-        element: <SingleProduct />,
+        element: <Product />,
         loader: ({ params }) => 
           fetch(`https://digitalfurnitureserver.vercel.app/products/${params.id}`),
       },

@@ -10,7 +10,7 @@ const Blogs = () => {
   }, [blogs]);
   return (
     <div>
-      <div className="flex gap-3 flex-wrap">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {blogs &&
           blogs.map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>)}
       </div>

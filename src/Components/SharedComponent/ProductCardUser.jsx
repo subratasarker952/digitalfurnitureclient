@@ -22,7 +22,7 @@ const ProductCardUser = ({ product }) => {
           </p>
           <div className="w-full">
             <Link
-              to={`/dashboard/allProducts/${_id}`}
+              to={`/products/${_id}`}
               className="btn w-full bg-blue-500 text-white"
             >
               Details

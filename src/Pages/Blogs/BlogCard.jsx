@@ -7,7 +7,7 @@ const BlogCard = ({ blog }) => {
   
       <div className="card bg-base-100 shadow-xl">
         <figure className="w-full">
-          <img src={img} alt="Shoes" className="rounded-xl" />
+          <img src={img} alt={title} className="rounded-xl" />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>
@@ -22,7 +22,7 @@ const BlogCard = ({ blog }) => {
           </div>
         </div>
       </div>
-  );
+  )
 };
 
 export default BlogCard;
