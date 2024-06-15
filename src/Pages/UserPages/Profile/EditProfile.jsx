@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 
 const EditProfile = () => {
   const { user } = useAuth();

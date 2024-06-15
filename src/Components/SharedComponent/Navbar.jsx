@@ -1,24 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const { user, userLoading, logOutUser } = useAuth();
   if (userLoading) return <p>Loading...</p>;
   const menu = (
     <>
-      <NavLink className="btn capitalize m-1" to="/">
+      <NavLink className="px-3 text-xl capitalize m-1" to="/">
         Home
       </NavLink>
-      <NavLink className="btn capitalize m-1" to="/about">
+      <NavLink className="px-3 text-xl capitalize m-1" to="/products">
+        Products
+      </NavLink>
+      <NavLink className="px-3 text-xl capitalize m-1" to="/about">
         about
       </NavLink>
-      <NavLink className="btn capitalize m-1" to="/contact">
+      <NavLink className="px-3 text-xl capitalize m-1" to="/contact">
         contact
       </NavLink>
-      <NavLink className="btn capitalize m-1" to="/blogs">
+      <NavLink className="px-3 text-xl capitalize m-1" to="/blogs">
         Blogs
       </NavLink>
-      <NavLink className="btn capitalize m-1" to="/dashboard">
+      <NavLink className="px-3 text-xl capitalize m-1" to="/dashboard">
         dashboard
       </NavLink>
     </>
@@ -50,7 +53,7 @@ const Navbar = () => {
             {menu}
           </ul>
         </div>
-        <Link to='/' className="border border-green-500 text-2xl py-2 px-4 text-green-500">df</Link>
+        <Link to='/' className=" text-2xl py-2 px-4 text-green-500">DF</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{menu}</ul>
@@ -59,7 +62,7 @@ const Navbar = () => {
         {user ? (
           <div className="flex gap-2 items-center">
             <div className="w-10 h-10 rounded-full bg-red-500">
-              <img src={user?.photoURL} alt="avater" />
+              <img src={user?.photoURL} alt="User Image" />
             </div>
             <button className="btn" onClick={() => logOutUser()}>
               Logout

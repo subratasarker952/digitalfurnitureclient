@@ -9,7 +9,7 @@ const ProductCardUser = ({ product }) => {
           <img
             src={img}
             alt={title}
-            className="rounded-xl w-[280px] h-[280px]"
+            className="rounded-xl w-[250px] h-[250px]"
           />
         </figure>
         <div className="card-body items-center text-center">
@@ -20,11 +20,10 @@ const ProductCardUser = ({ product }) => {
               ? description.slice(0, 49) + ".."
               : description}
           </p>
-          <div className="card-actions">
-            <button className="btn btn-primary">Add to cart</button>
+          <div className="w-full">
             <Link
               to={`/dashboard/allProducts/${_id}`}
-              className="btn bg-blue-500 text-white"
+              className="btn w-full bg-blue-500 text-white"
             >
               Details
             </Link>

@@ -1,30 +1,30 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../Layouts/MainLayout";
-import ErrorPage from "../Pages/ErrorPage";
-import Home from "../Pages/Home";
-import About from "../Pages/About";
-import Contact from "../Pages/Contact";
-import UserLayout from "../Layouts/UserLayout";
-import Login from "../Pages/Login";
-import Register from "../Pages/Register";
+import Home from "../Pages/Home/Home";
+import SingleProduct from "../Pages/UserPages/Products/SingleProduct";
+import CategoriesProducts from "../Components/HomePageCom/CategoriesProducts";
+import AboutUs from "../Components/HomePageCom/AboutUs";
+import Contact from "../Pages/Contact/Contact";
+import Blogs from "../Pages/Blogs/Blogs";
+import SingleBlog from "../Pages/Blogs/SingleBlog";
+import Login from "../Pages/Auth/Login";
+import Register from "../Pages/Auth/Register";
+import ErrorPage from "../Components/SharedComponent/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
-import Blogs from "../Pages/Blogs";
+import UserLayout from "../Layouts/UserLayout";
+import MainLayout from "../Layouts/MainLayout";
 import DashboardHome from "../Pages/UserPages/DashboardHome";
-import SingleProduct from "../Pages/SingleProduct";
-import AllProducts from "../Pages/UserPages/AllProducts";
-import AddProduct from "../Pages/UserPages/AddProduct";
-import UpdateProduct from "../Pages/UserPages/UpdateProduct";
-import EditProfile from "../Pages/UserPages/EditProfile";
-import CategoriesProducts from "../Pages/CategoriesProducts";
-import Profile from "../Pages/UserPages/Profile";
-import CreateBlog from "../Pages/UserPages/CreateBlog";
-import SingleBlog from "../Pages/SingleBlog";
-import CreateReview from "../Pages/UserPages/CreateReview";
-import SingleReview from "../Pages/UserPages/SingleReview";
-import AllReview from "../Pages/UserPages/AllReview";
-import UpdateReview from "../Pages/UserPages/UpdateReview";
-import MyBlogs from "../Pages/UserPages/MyBlogs";
-import UpdateBlog from "../Pages/UserPages/UpdateBlog";
+import Profile from "../Pages/UserPages/Profile/Profile";
+import EditProfile from "../Pages/UserPages/Profile/EditProfile";
+import AllProducts from "../Pages/UserPages/Products/AllProducts";
+import AddProduct from "../Pages/UserPages/Products/AddProduct";
+import UpdateProduct from "../Pages/UserPages/Products/UpdateProduct";
+import CreateBlog from "../Pages/UserPages/Blogs/CreateBlog";
+import MyBlogs from "../Pages/UserPages/Blogs/MyBlogs";
+import UpdateBlog from "../Pages/UserPages/Blogs/UpdateBlog";
+import CreateReview from "../Pages/UserPages/Review/CreateReview";
+import AllReview from "../Pages/UserPages/Review/AllReview";
+import SingleReview from "../Pages/UserPages/Review/SingleReview";
+import UpdateReview from "../Pages/UserPages/Review/UpdateReview";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: <AboutUs />,
       },
       {
         path: "/contact",
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <DashboardHome />,
+        element: <DashboardHome/>,
       },
       {
         path: "profile",
@@ -145,7 +145,7 @@ const router = createBrowserRouter([
       },
       {
         path: "createReview",
-        element: <CreateReview />,
+        element: <CreateReview/>,
       },
       {
         path: "reviews",
@@ -159,7 +159,7 @@ const router = createBrowserRouter([
       },
       {
         path: "reviews/update/:id",
-        element: <UpdateReview />,
+        element: <UpdateReview/>,
         loader: ({ params }) => 
           fetch(`https://digitalfurnitureserver.vercel.app/reviews/${params.id}`),
       },

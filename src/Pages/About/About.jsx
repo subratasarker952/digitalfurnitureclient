@@ -1,8 +1,9 @@
+import AboutUs from "../../Components/HomePageCom/AboutUs";
 
 const About = () => {
     return (
         <div>
-            <h2 className="text-3xl text-center">Coming Soon</h2>
+            <AboutUs/>
         </div>
     );
 };

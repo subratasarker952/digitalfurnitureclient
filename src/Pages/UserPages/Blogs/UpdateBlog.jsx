@@ -1,7 +1,11 @@
 import toast from "react-hot-toast";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
-const CreateBlog = () => {
+const UpdateBlog = () => {
+    const loaderBlog=useLoaderData()
+    const {_id,description, img,category, title }=loaderBlog
+    const navigate=useNavigate()
   const { user } = useAuth();
   const handleForm = (e) => {
     e.preventDefault();
@@ -21,12 +25,12 @@ const CreateBlog = () => {
       description,
       img,
       category,
-      createAt: new Date(),
+      updateAt: new Date(),
     };
-    const sure = window.confirm("Are you sure blog save to db?");
+    const sure = window.confirm("Are you sure save changes ?");
     if (sure) {
-      fetch("https://digitalfurnitureserver.vercel.app/blogs", {
-        method: "POST",
+      fetch(`https://digitalfurnitureserver.vercel.app/blogs/${_id}`, {
+        method: "PATCH",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
           authorization: `barer ${localStorage.getItem("token")}`,
@@ -35,8 +39,9 @@ const CreateBlog = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.insertedId) {
-            toast.success("Blog Added");
+          if (data.modifiedCount>0) {
+            toast.success("blog update");
+            navigate("/dashboard/blogs")
             form.reset();
           } else if (data.message) {
             toast.error(data.message);
@@ -58,7 +63,7 @@ const CreateBlog = () => {
               <input
                 type="text"
                 name="title"
-                defaultValue=""
+                defaultValue={title}
                 placeholder="Blog title"
                 className="input input-bordered"
                 required
@@ -70,12 +75,13 @@ const CreateBlog = () => {
               <label className="label">
                 <span className="label-text">Blog Description</span>
               </label>
-              <input
+              <textarea
                 type="text"
                 name="description"
-                defaultValue=""
+                
+                defaultValue={description}
                 placeholder="Blog Description"
-                className="input input-bordered"
+                className="input input-bordered h-[221px]"
                 required
               />
             </div>
@@ -87,7 +93,7 @@ const CreateBlog = () => {
               <input
                 type="text"
                 name="img"
-                defaultValue=""
+                defaultValue={img}
                 placeholder="blog Image Url"
                 className="input input-bordered"
                 required
@@ -100,6 +106,7 @@ const CreateBlog = () => {
               </label>
               <select
                 className="input capitalize input-bordered"
+                defaultValue={category}
                 name="category"
                 id="category"
               >
@@ -112,7 +119,7 @@ const CreateBlog = () => {
 
             <div className="form-control mt-6">
               <button className="btn btn-primary" type="submit">
-                Add blog
+                UpdateBlog
               </button>
             </div>
           </form>
@@ -122,4 +129,4 @@ const CreateBlog = () => {
   );
 };
 
-export default CreateBlog;
+export default UpdateBlog;

@@ -12,10 +12,10 @@ const BlogCard = ({ blog }) => {
         <div className="card-body items-center text-center">
           <h2 className="card-title">{title}</h2>
           <p>{description.length>50 ? description.slice(0,49)+"...":description }</p>
-          <div className="card-actions">
+          <div className="w-full">
             <Link
               to={`/blogs/${_id}`}
-              className="btn btn-primary"
+              className="btn w-full hover:text-black bg-blue-500 text-white"
             >
               Details
             </Link>

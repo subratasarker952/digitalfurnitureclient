@@ -1,16 +1,15 @@
 import toast from "react-hot-toast";
-import useAuth from "../../hooks/useAuth";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
-const UpdateBlog = () => {
-    const loaderBlog=useLoaderData()
-    const navigate=useNavigate()
+const CreateReview = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
     const description = form.description.value;
-    const img = user?.photoURL;
+    const img = user?.photoURL || "https://icons.veryicon.com/png/o/miscellaneous/standard/avatar-15.png"; 
     if (!description || !img) {
       toast.error("Please Provide Information");
       return;
@@ -24,7 +23,7 @@ const UpdateBlog = () => {
     };
     const sure = window.confirm("Are you sure blog save to db?");
     if (sure) {
-      fetch("https://digitalfurnitureserver.vercel.app/blogs", {
+      fetch("https://digitalfurnitureserver.vercel.app/reviews", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -35,9 +34,9 @@ const UpdateBlog = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.insertedId) {
-            toast.success("blog update");
-            navigate("/")
+            toast.success("Review Added");
             form.reset();
+            navigate("/dashboard/reviews");
           } else if (data.message) {
             toast.error(data.message);
           }
@@ -48,27 +47,24 @@ const UpdateBlog = () => {
     <div>
       <div className="my-10">
         <div className="card shrink-0 w-full max-w-lg mx-auto shadow-2xl bg-base-100">
-          <h2 className=" mt-2 text-3xl text-center">Edit blog</h2>
+          <h2 className=" mt-2 text-3xl text-center">Add A Review</h2>
           <form className="card-body" onSubmit={handleForm}>
             {/* description */}
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Blog Description</span>
-              </label>
               <textarea
                 maxLength={500}
                 minLength={100}
                 type="text"
                 name="description"
-                defaultValue={loaderBlog?.description}
-                placeholder="Say Something"
+                defaultValue=""
+                placeholder="Type Something"
                 className="input input-bordered h-[221px]"
                 required
               />
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary" type="submit">
-            update blog
+                Add Review
               </button>
             </div>
           </form>
@@ -78,4 +74,4 @@ const UpdateBlog = () => {
   );
 };
 
-export default UpdateBlog;
+export default CreateReview;

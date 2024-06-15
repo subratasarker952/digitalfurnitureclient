@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ProductCardUser from "./ProductCardUser";
+import ProductCardUser from "../SharedComponent/ProductCardUser";
 
 const FeaturedProducts = () => {
   const [products, setProducts] = useState([]);

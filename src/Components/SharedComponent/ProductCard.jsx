@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
-  const { _id, title, price, description, img } = product;
+  const { _id, title, price, img } = product;
   const handleDelete = (p) => {
     const sure = window.confirm("Are You Sure? Delete " + p?.title);
     if (sure) {

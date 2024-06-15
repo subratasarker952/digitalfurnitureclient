@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import useAuth from '../../hooks/useAuth';
-import BlogCard from '../BlogCard';
+import useAuth from '../../../hooks/useAuth';
+import BlogCard from '../../Blogs/BlogCard';
 
 const MyBlogs = () => {
     const {user}=useAuth()

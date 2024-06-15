@@ -1,6 +1,6 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 
 const SingleBlog = () => {
   const { user } = useAuth();
@@ -32,19 +32,17 @@ const SingleBlog = () => {
       };
   return (
     <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl">
+      <div className="card lg:card-side bg-base-100 shadow-xl p-2">
         <figure>
           <img src={img} alt={title} />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
           <p>{description}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
-          </div>
+          
         </div>
       </div>
-      <div className="p-3 m-3 text-xl flex">
+      <div className="p-3 m-3 text-xl flex justify-between">
         <div>
           Author:{authorName}, Email:-{authorEmail}, createAt:-{createAt}
         </div>

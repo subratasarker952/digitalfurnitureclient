@@ -1,5 +1,5 @@
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Register = () => {
     const confirmPassword = form.confirmPassword.value;
     if (password === confirmPassword) {
       createUser(email, password)
-        .then((res) => {
+        .then(() => {
           navigate(from, { replace: true });
         })
         .catch((err) => {

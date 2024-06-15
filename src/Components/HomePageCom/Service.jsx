@@ -1,11 +1,11 @@
-import { CiDeliveryTruck } from "react-icons/ci";
+import { CiDeliveryTruck, CiDollar, CiMapPin } from "react-icons/ci";
 
 const Service = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
       <div className="card text-center w-auto ">
         <div className="card-body">
-          <div className="m-auto">
+          <div className="m-auto text-5xl font-bold">
             <CiDeliveryTruck />
           </div>
           <h2 className="text-2xl">Fast Delivery</h2>
@@ -14,8 +14,8 @@ const Service = () => {
       </div>
       <div className="card text-center w-auto">
         <div className="card-body">
-          <div className="m-auto" >
-            <CiDeliveryTruck />
+          <div className="m-auto  text-5xl font-bold" >
+            <CiMapPin />
           </div>
           <h2 className="text-2xl">Order Tracking</h2>
           <p>All orders Tracking</p>
@@ -23,8 +23,8 @@ const Service = () => {
       </div>
       <div className="card text-center w-auto">
         <div className="card-body">
-          <div  className="m-auto">
-            <CiDeliveryTruck />
+          <div  className="m-auto text-5xl font-bold">
+            <CiDollar />
           </div>
           <h2 className="text-2xl">Secure Payment</h2>
           <p>Your payment must secure</p>

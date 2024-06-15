@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import Footer from "../Components/SharedComponent/Footer";
+import Navbar from "../Components/SharedComponent/Navbar";
 
 
 const MainLayout = () => {

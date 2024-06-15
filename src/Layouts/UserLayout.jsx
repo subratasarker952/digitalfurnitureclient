@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const UserLayout = () => {
-  const {logOutUser } = useAuth();
+  const { logOutUser } = useAuth();
 
   const menu = (
     <>
@@ -41,7 +41,10 @@ const UserLayout = () => {
         <div className="w-2/12 bg-slate-300 p-5 md:p-2 h-screen fixed">
           <div className="flex flex-col gap-1 ">
             {menu}
-            <button className="btn bg-red-500 text-white hover:text-black" onClick={() => logOutUser()}>
+            <button
+              className="btn bg-red-500 text-white hover:text-black"
+              onClick={() => logOutUser()}
+            >
               Logout
             </button>
           </div>

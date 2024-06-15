@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import ProductCardUser from "../Components/HomePageCom/ProductCardUser";
+import ProductCardUser from "../SharedComponent/ProductCardUser";
 
 const CategoriesProducts = () => {
   const products = useLoaderData();

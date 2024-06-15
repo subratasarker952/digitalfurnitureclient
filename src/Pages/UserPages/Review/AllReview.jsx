@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import ReviewCard from "./ReviewCard";
 
 const AllReview = () => {
