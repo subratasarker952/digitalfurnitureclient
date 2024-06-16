@@ -12,22 +12,22 @@ const Navbar = () => {
       <NavLink className="px-3 text-xl capitalize m-1" to="/products">
         Products
       </NavLink>
-      <NavLink className="px-3 text-xl capitalize m-1" to="/about">
-        about
-      </NavLink>
-      <NavLink className="px-3 text-xl capitalize m-1" to="/contact">
-        contact
-      </NavLink>
       <NavLink className="px-3 text-xl capitalize m-1" to="/blogs">
         Blogs
       </NavLink>
-      <NavLink className="px-3 text-xl capitalize m-1" to="/dashboard">
+      <NavLink className="px-3 text-xl capitalize m-1" to="/reviews">
+        Reviwes
+      </NavLink>
+      <NavLink className="px-3 text-xl capitalize m-1" to="/about">
+        about
+      </NavLink>
+       <NavLink className="px-3 text-xl capitalize m-1" to="/dashboard">
         dashboard
       </NavLink>
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

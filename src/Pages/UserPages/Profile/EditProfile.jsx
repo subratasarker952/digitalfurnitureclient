@@ -36,7 +36,7 @@ const EditProfile = () => {
         .then((data) => {
           if (data.modifiedCount > 0) {
             toast.success("User Updated");
-            navigate("/dashboard");
+            navigate("/dashboard/profile");
           }
         });
     }

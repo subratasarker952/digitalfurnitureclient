@@ -6,53 +6,51 @@ const UserLayout = () => {
 
   const menu = (
     <>
-      <NavLink className=" capitalize btn m-1" to="/">
+      <NavLink className=" capitalize btn" to="/">
         Home
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="">
+      <NavLink className=" capitalize btn" to="">
         Dashboard
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="profile">
+      <NavLink className=" capitalize btn" to="profile">
         Profile
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="addProduct">
+      <NavLink className=" capitalize btn" to="addProduct">
         Add Product
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="allProducts">
-        All Products
+      <NavLink className=" capitalize btn" to="myProducts">
+        My Products
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="createBlog">
-        Post Blog
+      <NavLink className=" capitalize btn" to="createBlog">
+        Add Blog
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="blogs">
+      <NavLink className=" capitalize btn" to="blogs">
         My Blogs
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="createReview">
-        Post Review
+      <NavLink className=" capitalize btn" to="createReview">
+        Add Review
       </NavLink>
-      <NavLink className=" capitalize btn m-1" to="reviews">
+      <NavLink className=" capitalize btn" to="myReviews">
         My Review
       </NavLink>
     </>
   );
   return (
     <>
-      <div className="flex ">
-        <div className="w-2/12 bg-slate-300 p-5 md:p-2 h-screen fixed">
+      <div className="flex">
+        <div className="flex-10 bg-slate-300 h-screen sticky top-0 p-3 m-3">
           <div className="flex flex-col gap-1 ">
             {menu}
             <button
-              className="btn bg-red-500 text-white hover:text-black"
+              className=" bg-red-500 btn text-white hover:text-black"
               onClick={() => logOutUser()}
             >
               Logout
             </button>
           </div>
         </div>
-        <div className="w-10/12 ml-[200px]">
-          <div className="m-5">
-            <Outlet />
-          </div>
+        <div className="flex-1 mx-auto bg-slate-200">
+          <Outlet />
         </div>
       </div>
     </>

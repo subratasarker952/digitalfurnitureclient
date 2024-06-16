@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
 import CategoriesProducts from "../Components/HomePageCom/CategoriesProducts";
 import AboutUs from "../Components/HomePageCom/AboutUs";
-import Contact from "../Pages/Contact/Contact";
 import Blogs from "../Pages/Blogs/Blogs";
 import SingleBlog from "../Pages/Blogs/SingleBlog";
 import Login from "../Pages/Auth/Login";
@@ -14,19 +13,21 @@ import MainLayout from "../Layouts/MainLayout";
 import DashboardHome from "../Pages/UserPages/DashboardHome";
 import Profile from "../Pages/UserPages/Profile/Profile";
 import EditProfile from "../Pages/UserPages/Profile/EditProfile";
-import AllProducts from "../Pages/UserPages/Products/AllProducts";
+import MyProducts from "../Pages/UserPages/Products/MyProducts";
 import AddProduct from "../Pages/UserPages/Products/AddProduct";
 import UpdateProduct from "../Pages/UserPages/Products/UpdateProduct";
 import CreateBlog from "../Pages/UserPages/Blogs/CreateBlog";
 import MyBlogs from "../Pages/UserPages/Blogs/MyBlogs";
 import UpdateBlog from "../Pages/UserPages/Blogs/UpdateBlog";
-import CreateReview from "../Pages/UserPages/Review/CreateReview";
-import AllReview from "../Pages/UserPages/Review/AllReview";
+import AddReview from "../Pages/UserPages/Review/AddReview";
 import SingleReview from "../Pages/UserPages/Review/SingleReview";
 import UpdateReview from "../Pages/UserPages/Review/UpdateReview";
 import Products from "../Pages/Products/Products";
 import Product from "../Pages/Products/Product";
 import SingleProduct from "../Pages/UserPages/Products/SingleProduct";
+import Reviews from "../Pages/Reviews/Reviews";
+import Review from "../Pages/Reviews/Review";
+import MyReviews from "../Pages/UserPages/Review/MyReviews";
 
 const router = createBrowserRouter([
   {
@@ -38,47 +39,56 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/products",
-        element: <Products />,
-      },
-      {
-        path: "/products/:id",
-        element: <Product />,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/products/${params.id}`),
-      },
-      {
-        path: "/products/categories/:category",
-        element: <CategoriesProducts />,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/products/categories/${params.category}`),
-      },
-      {
-        path: "/about",
-        element: <AboutUs />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "/blogs",
-        element: <Blogs />,
-        
-      },
-      {
-        path: "/blogs/:id",
-        element: <SingleBlog />,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
-      },
-      {
         path: "/login",
         element: <Login />,
       },
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
+      },
+      {
+        path: "/products/:id",
+        element: <Product />,
+        loader: ({ params }) =>
+          fetch(
+            `https://digitalfurnitureserver.vercel.app/products/${params.id}`
+          ),
+      },
+      {
+        path: "/products/categories/:category",
+        element: <CategoriesProducts />,
+        loader: ({ params }) =>
+          fetch(
+            `https://digitalfurnitureserver.vercel.app/products/categories/${params.category}`
+          ),
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "/blogs/:id",
+        element: <SingleBlog />,
+        loader: ({ params }) =>
+          fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
+      },
+      {
+        path: "/reviews",
+        element: <Reviews />,
+      },
+      {
+        path: "/reviews/:id",
+        element: <Review />,
+        loader: ({ params }) =>
+          fetch(`https://digitalfurnitureserver.vercel.app/reviews/${params.id}`),
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
       },
       {
         path: "*",
@@ -97,7 +107,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <DashboardHome/>,
+        element: <DashboardHome />,
       },
       {
         path: "profile",
@@ -106,18 +116,22 @@ const router = createBrowserRouter([
       {
         path: "editProfile/:id",
         element: <EditProfile />,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/users/get/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://digitalfurnitureserver.vercel.app/users/get/${params.id}`
+          ),
       },
       {
-        path: "allProducts",
-        element: <AllProducts />,
+        path: "myProducts",
+        element: <MyProducts />,
       },
       {
         path: "allProducts/:id",
         element: <SingleProduct />,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/products/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://digitalfurnitureserver.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "addProduct",
@@ -126,8 +140,10 @@ const router = createBrowserRouter([
       {
         path: "updateProduct/:id",
         element: <UpdateProduct />,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/products/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://digitalfurnitureserver.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "createBlog",
@@ -140,34 +156,38 @@ const router = createBrowserRouter([
       {
         path: "blogs/:id",
         element: <SingleBlog />,
-        loader: ({ params }) => 
+        loader: ({ params }) =>
           fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
       },
       {
         path: "editBlog/:id",
-        element: < UpdateBlog/>,
-        loader: ({ params }) => 
+        element: <UpdateBlog />,
+        loader: ({ params }) =>
           fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
       },
       {
         path: "createReview",
-        element: <CreateReview/>,
+        element: <AddReview />,
       },
       {
-        path: "reviews",
-        element: <AllReview />,
+        path: "myReviews",
+        element: <MyReviews/>,
       },
       {
         path: "reviews/:id",
         element: <SingleReview />,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/reviews/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://digitalfurnitureserver.vercel.app/reviews/${params.id}`
+          ),
       },
       {
         path: "reviews/update/:id",
-        element: <UpdateReview/>,
-        loader: ({ params }) => 
-          fetch(`https://digitalfurnitureserver.vercel.app/reviews/${params.id}`),
+        element: <UpdateReview />,
+        loader: ({ params }) =>
+          fetch(
+            `https://digitalfurnitureserver.vercel.app/reviews/${params.id}`
+          ),
       },
       {
         path: "*",

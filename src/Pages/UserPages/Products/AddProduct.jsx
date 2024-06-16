@@ -1,6 +1,8 @@
 import toast from "react-hot-toast";
+import useAuth from "../../../hooks/useAuth";
 
 const AddProduct = () => {
+  const { user } = useAuth();
   const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,7 +20,8 @@ const AddProduct = () => {
       price,
       description,
       img,
-      category
+      category,
+      authorEmail:user?.email
     };
     const sure = window.confirm("Are you sure Product save to db?");
     if (sure) {
@@ -43,7 +46,7 @@ const AddProduct = () => {
   };
   return (
     <div>
-      <div className="my-10">
+      <div className="mx-auto flex justify-center items-center">
         <div className="card shrink-0 w-full max-w-lg mx-auto shadow-2xl bg-base-100">
           <h2 className=" mt-2 text-3xl text-center">Add Product</h2>
           <form className="card-body" onSubmit={handleForm}>
@@ -108,7 +111,11 @@ const AddProduct = () => {
               <label className="label">
                 <span className="label-text">Category</span>
               </label>
-              <select className="input capitalize input-bordered" name="category" id="category">
+              <select
+                className="input capitalize input-bordered"
+                name="category"
+                id="category"
+              >
                 <option value="table">table</option>
                 <option value="chair">chair</option>
                 <option value="sofa">sofa</option>

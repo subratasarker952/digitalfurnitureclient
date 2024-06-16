@@ -43,7 +43,7 @@ const ProductCard = ({ product }) => {
             </Link>
             <Link
               to={`/dashboard/updateProduct/${_id}`}
-              className="btn  bg-blue-500 text-white"
+              className="btn  bg-green-500 text-white"
             >
               Edit
             </Link>

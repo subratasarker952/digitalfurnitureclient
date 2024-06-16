@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import BlogCard from "./BlogCard";
+import ReviewCard from "./ReviewCard";
 
-const Blogs = () => {
-  const [blogs, setBlogs] = useState([]);
+const Reviews = () => {
+  const [reviews, setReviews] = useState([]);
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    fetch(`https://digitalfurnitureserver.vercel.app/blogs?searchText=${searchText}`)
+    fetch(`https://digitalfurnitureserver.vercel.app/reviews?searchText=${searchText}`)
       .then((response) => response.json())
-      .then((json) => setBlogs(json));
+      .then((json) => setReviews(json));
   }, [searchText]);
 
   return (
@@ -16,7 +16,7 @@ const Blogs = () => {
       <div>
         <div className="max-w-md border border-black mx-auto my-3">
           <input
-          className="w-full border-red-500 p-3 text-xl"
+            className="w-full border-red-500 p-3 text-xl"
             type="text"
             name="search"
             placeholder="Search blog"
@@ -25,12 +25,13 @@ const Blogs = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-      {blogs &&
-          blogs.map((blog) => <BlogCard key={blog._id} blog={blog}></BlogCard>)}
+        {reviews &&
+          reviews.map((review) => (
+            <ReviewCard key={review._id} review={review}></ReviewCard>
+          ))}
       </div>
     </div>
   );
-
 };
 
-export default Blogs;
+export default Reviews;

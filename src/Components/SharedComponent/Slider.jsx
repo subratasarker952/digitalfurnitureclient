@@ -15,7 +15,7 @@ const Slider = ({ slides }) => {
       pagination={{ clickable: true }}
     >
       {slides && slides.map(slide=> <SwiperSlide key={slide._id}>
-        <div className="p-12 min-h-[500px] max-h-[600px] flex flex-col justify-between">
+        <div className="p-12 min-h-[500px]  max-h-[600px] flex flex-col justify-between bg-slate-50">
                   <p className="max-w-lg mx-auto">{slide?.description}</p>
 
                   <div className="my-10 mx-auto ">

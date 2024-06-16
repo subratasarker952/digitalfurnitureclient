@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-const CreateReview = () => {
+const AddReview = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const handleForm = (e) => {
@@ -52,8 +52,8 @@ const CreateReview = () => {
             {/* description */}
             <div className="form-control">
               <textarea
-                maxLength={500}
-                minLength={100}
+                maxLength={440}
+                minLength={200}
                 type="text"
                 name="description"
                 defaultValue=""
@@ -74,4 +74,4 @@ const CreateReview = () => {
   );
 };
 
-export default CreateReview;
+export default AddReview;

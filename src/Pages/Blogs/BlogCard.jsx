@@ -15,7 +15,7 @@ const BlogCard = ({ blog }) => {
           <div className="w-full">
             <Link
               to={`/blogs/${_id}`}
-              className="btn w-full hover:text-black bg-blue-500 text-white"
+              className="btn w-full hover:text-black bg-green-500 text-white"
             >
               Details
             </Link>

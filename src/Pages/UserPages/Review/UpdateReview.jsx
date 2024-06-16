@@ -32,7 +32,7 @@ const UpdateReview = () => {
           console.log(data)
           if (data.modifiedCount > 0) {
             toast.success("Review Updated");
-            navigate("/dashboard/reviews");
+            navigate("/dashboard/myReviews");
           }
           else if(data.message){
             toast.error(data.message)

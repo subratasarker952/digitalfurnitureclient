@@ -53,7 +53,7 @@ const UpdateBlog = () => {
     <div>
       <div className="my-10">
         <div className="card shrink-0 w-full max-w-lg mx-auto shadow-2xl bg-base-100">
-          <h2 className=" mt-2 text-3xl text-center">Add A Blog</h2>
+          <h2 className=" mt-2 text-3xl text-center">Eidt Blog</h2>
           <form className="card-body" onSubmit={handleForm}>
             {/* title */}
             <div className="form-control">
@@ -78,10 +78,9 @@ const UpdateBlog = () => {
               <textarea
                 type="text"
                 name="description"
-                
                 defaultValue={description}
                 placeholder="Blog Description"
-                className="input input-bordered h-[221px]"
+                className="input input-bordered h-[120px]"
                 required
               />
             </div>

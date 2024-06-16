@@ -28,34 +28,43 @@ const Profile = () => {
   return (
     <div className="flex justify-between">
       <div className="text-2xl font-semibold capitalize">
-        {userInDb?.img && (
-          <img className="h-[200px] w-[200px]" src={userInDb?.img} alt="" />
-        )}
-
-        <p>Email:- {userInDb?.email}</p>
-        {userInDb?.displayName && <p>displayName:- {userInDb?.displayName}</p>}
-        {userInDb?.age && <p>age:- {userInDb?.age} Years</p>}
-        {userInDb?.role && <p>Role:- {userInDb?.role}</p>}
-        {userInDb?.description && (
-          <p>
-            about your self:-  {userInDb?.description}
-          </p>
-        )}
-      </div>
-      <div className="flex flex-col gap-2">
-        <Link
-          to={`/dashboard/editProfile/${userInDb?._id}`}
-          className="btn btn-primary"
-        >
-          Edit Profile
-        </Link>
-        <button
-          disabled={disabled}
-          onClick={handlePasswordReset}
-          className="btn btn-primary"
-        >
-          Change Password
-        </button>
+        <div className=" md:flex my-10 ">
+          <div className="flex-1">
+            {userInDb?.img && (
+              <img
+                className="h-[200px] w-[200px]"
+                src={userInDb?.img}
+                alt={"User Img"}
+              />
+            )}
+          </div>
+          <div className="flex-1">
+            <p>Email:- {userInDb?.email}</p>
+            {userInDb?.displayName && (
+              <p>displayName:- {userInDb?.displayName}</p>
+            )}
+            {userInDb?.age && <p>age:- {userInDb?.age} Years</p>}
+            {userInDb?.role && <p>Role:- {userInDb?.role}</p>}
+            {userInDb?.description && (
+              <p>about your self:- {userInDb?.description}</p>
+            )}
+          </div>
+        </div>
+        <div className="flex gap-2">
+          <Link
+            to={`/dashboard/editProfile/${userInDb?._id}`}
+            className="btn btn-primary  flex-1"
+          >
+            Edit Profile
+          </Link>
+          <button
+            disabled={disabled}
+            onClick={handlePasswordReset}
+            className="btn btn-primary flex-1 "
+          >
+            Change Password
+          </button>
+        </div>
       </div>
     </div>
   );
