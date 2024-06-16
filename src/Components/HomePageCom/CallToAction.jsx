@@ -2,7 +2,7 @@ const CallToAction = () => {
   return (
     <div>
       <div className="my-10">
-        <h2 className="my-10 text-center text-green-300 text-3xl">
+        <h2 className="my-10 text-center text-green-500 text-3xl">
           Call To Action
         </h2>
         <div className="h-[200px] bg-green-200 flex flex-col justify-center items-center">
