@@ -36,7 +36,7 @@ const AddReview = () => {
           if (data.insertedId) {
             toast.success("Review Added");
             form.reset();
-            navigate("/dashboard/reviews");
+            navigate("/dashboard/myReviews");
           } else if (data.message) {
             toast.error(data.message);
           }
