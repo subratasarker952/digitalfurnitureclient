@@ -61,7 +61,7 @@ const Navbar = () => {
             <div className="w-10 h-10 rounded-full bg-red-500">
               <img src={user?.photoURL} alt="User Image" />
             </div>
-            <button className="btn" onClick={() => logOutUser()}>
+            <button className="btn bg-red-500 text-white" onClick={() => logOutUser()}>
               Logout
             </button>
           </div>

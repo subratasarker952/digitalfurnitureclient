@@ -26,19 +26,20 @@ const Profile = () => {
     }
   };
   return (
-    <div className="flex justify-between">
-      <div className="text-2xl font-semibold capitalize">
-        <div className=" md:flex my-10 ">
-          <div className="flex-1">
+    <div className="">
+      <div className="text-center">
+        <div className=" md:flex  ">
+          <div className="flex-1" >
             {userInDb?.img && (
               <img
-                className="h-[200px] w-[200px]"
+                className="h-[200px] w-[200px] mx-auto"
                 src={userInDb?.img}
                 alt={"User Img"}
               />
             )}
           </div>
-          <div className="flex-1">
+          <div className="flex-1 flex justify-center items-center text-xl">
+            <div> 
             <p>Email:- {userInDb?.email}</p>
             {userInDb?.displayName && (
               <p>displayName:- {userInDb?.displayName}</p>
@@ -48,6 +49,7 @@ const Profile = () => {
             {userInDb?.description && (
               <p>about your self:- {userInDb?.description}</p>
             )}
+            </div>
           </div>
         </div>
         <div className="flex gap-2">
