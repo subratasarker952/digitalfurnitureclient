@@ -27,7 +27,7 @@ const Profile = () => {
   };
   return (
     <div className="">
-      <div className="text-center">
+      <div className="text-center my-5">
         <div className=" md:flex  ">
           <div className="flex-1" >
             {userInDb?.img && (
@@ -52,7 +52,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 my-5">
           <Link
             to={`/dashboard/editProfile/${userInDb?._id}`}
             className="btn btn-primary  flex-1"

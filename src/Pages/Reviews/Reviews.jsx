@@ -19,7 +19,7 @@ const Reviews = () => {
             className="w-full border-red-500 p-3 text-xl"
             type="text"
             name="search"
-            placeholder="Search blog"
+            placeholder="Search in Review Description"
             onChange={(e) => setSearchText(e.target.value)}
           />
         </div>

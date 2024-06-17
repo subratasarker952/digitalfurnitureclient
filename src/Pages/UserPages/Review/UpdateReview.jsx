@@ -4,7 +4,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 const UpdateReview = () => {
   const loadedReview = useLoaderData();
   const navigate = useNavigate();
-  const {_id,description} = loadedReview;
+  const { _id, description } = loadedReview;
   const handleForm = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,7 +15,7 @@ const UpdateReview = () => {
       return;
     }
     const review = {
-         description,
+      description,
     };
     const sure = window.confirm("Are you sure Update Product information?");
     if (sure) {
@@ -29,13 +29,11 @@ const UpdateReview = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data)
-          if (data.modifiedCount > 0) {
+          if (data.modifiedCount > 0 || data.matchedCount > 0) {
             toast.success("Review Updated");
             navigate("/dashboard/myReviews");
-          }
-          else if(data.message){
-            toast.error(data.message)
+          } else if (data.message) {
+            toast.error(data.message);
           }
         });
     }
@@ -45,7 +43,6 @@ const UpdateReview = () => {
       <div className="my-10">
         <div className="card shrink-0 w-full max-w-lg mx-auto shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={handleForm}>
-        
             {/* description */}
             <div className="form-control">
               <label className="label">
@@ -60,9 +57,13 @@ const UpdateReview = () => {
                 required
               />
             </div>
-        
+
             <div className="form-control mt-6">
-              <button className="btn btn-primary" type="submit">
+              <button
+                onClick={handleForm}
+                className="btn btn-primary"
+                type="submit"
+              >
                 Update Review
               </button>
             </div>

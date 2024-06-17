@@ -7,55 +7,55 @@ const UserLayout = () => {
   const menu = (
     <>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to=""
       >
         Dashboard
       </NavLink>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="profile"
       >
         Profile
       </NavLink>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="addProduct"
       >
         Add Product
       </NavLink>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="myProducts"
       >
         My Products
       </NavLink>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="createBlog"
       >
         Add Blog
       </NavLink>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="blogs"
       >
         My Blogs
       </NavLink>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="createReview"
       >
         Add Review
       </NavLink>
       <NavLink
-        className=" capitalize p-1 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="myReviews"
       >
         My Review
       </NavLink>
       <button
-        className=" bg-red-500 p-1 text-center m-1 hover:bg-green-500 active:bg-black text-white hover:text-black"
+        className=" bg-red-500 p-2 rounded-full text-center m-1  active:bg-black text-white "
         onClick={() => logOutUser()}
       >
         Logout
