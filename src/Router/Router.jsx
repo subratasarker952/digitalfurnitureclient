@@ -28,6 +28,7 @@ import SingleProduct from "../Pages/UserPages/Products/SingleProduct";
 import Reviews from "../Pages/Reviews/Reviews";
 import Review from "../Pages/Reviews/Review";
 import MyReviews from "../Pages/UserPages/Review/MyReviews";
+import Blog from "../Pages/UserPages/Blogs/Blog";
 
 const router = createBrowserRouter([
   {
@@ -155,7 +156,7 @@ const router = createBrowserRouter([
       },
       {
         path: "blogs/:id",
-        element: <SingleBlog />,
+        element: <Blog />,
         loader: ({ params }) =>
           fetch(`https://digitalfurnitureserver.vercel.app/blogs/${params.id}`),
       },

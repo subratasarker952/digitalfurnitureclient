@@ -6,9 +6,6 @@ const Navbar = () => {
   if (userLoading) return <p>Loading...</p>;
   const menu = (
     <>
-      <NavLink className="px-3 text-xl capitalize m-1" to="/">
-        Home
-      </NavLink>
       <NavLink className="px-3 text-xl capitalize m-1" to="/products">
         Products
       </NavLink>

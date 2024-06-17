@@ -21,6 +21,7 @@ const MyProducts = () => {
   return (
     <div>
       <div>
+        <p className="text-center">Your Added Product length {products.length}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {products &&
             products.map((product) => (

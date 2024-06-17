@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import useAuth from '../../../hooks/useAuth';
-import BlogCard from '../../Blogs/BlogCard';
+import { useEffect, useState } from "react";
+import useAuth from "../../../hooks/useAuth";
+import UserBlogCard from "./UserBlogCard";
 
 const MyBlogs = () => {
-    const {user}=useAuth()
-    const [blogs, setBlogs] = useState([]);
+  const { user } = useAuth();
+  const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     fetch(`https://digitalfurnitureserver.vercel.app/blogs/me/${user?.email}`)
       .then((response) => response.json())
@@ -12,10 +12,12 @@ const MyBlogs = () => {
   }, [blogs, user]);
   return (
     <div>
+      <p className="text-center">Your Added Blogs length {blogs.length}</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        {blogs && blogs.map((blog) => (
-          <BlogCard key={blog._id} blog={blog}></BlogCard>
-        ))}
+        {blogs &&
+          blogs.map((blog) => (
+            <UserBlogCard key={blog._id} blog={blog}></UserBlogCard>
+          ))}
       </div>
     </div>
   );

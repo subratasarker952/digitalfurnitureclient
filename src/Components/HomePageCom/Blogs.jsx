@@ -11,7 +11,7 @@ const Blogs = () => {
 
   return (
     <div className="my-10">
-      <h2 className="m-5 text-center text-green-300 text-3xl">Blogs</h2>
+      <h2 className="m-5 text-center text-green-500 text-3xl">Blogs</h2>
       <div>
         <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
