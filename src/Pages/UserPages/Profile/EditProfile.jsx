@@ -31,7 +31,7 @@ const EditProfile = () => {
     const age = parseInt(form.age.value);
     const description = form.description.value;
 
-    if (!displayName || !age || !description || !img) {
+    if (!displayName || !age || !img) {
       toast.error("Please Provide Your Information");
       return;
     }
@@ -122,6 +122,7 @@ const EditProfile = () => {
                 defaultValue={loadedUser?.age}
                 placeholder="Your age"
                 className="input input-bordered"
+                required
               />
             </div>
             {/* description */}
