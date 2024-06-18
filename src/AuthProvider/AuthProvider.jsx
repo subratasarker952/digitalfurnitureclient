@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
@@ -74,6 +75,12 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
+  
+  const updateUser = (userInfo) => {
+    return updateProfile(auth.currentUser, userInfo)
+    
+  };
+  
   const passwordReset = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
@@ -95,6 +102,7 @@ const AuthProvider = ({ children }) => {
     setError,
     githubLogin,
     passwordReset,
+    updateUser
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

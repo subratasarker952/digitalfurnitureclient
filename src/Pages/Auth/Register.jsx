@@ -1,25 +1,56 @@
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [img, setImg] = useState("");
   const location = useLocation();
   const from = location?.state || "/";
-  const { user, createUser, error, setError } = useAuth();
+  const { user, createUser, error, setError, updateUser } = useAuth();
   if (user) {
     return <Navigate to={from}></Navigate>;
   }
+
+  const handleImgUpload = async (e) => {
+    const imgFile = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", imgFile);
+    const response = await fetch(
+      `https://api.imgbb.com/1/upload?key=2b8e612910de513b98a70f8ee1891574`,
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    const result = await response.json();
+    setImg(result.data.url);
+  };
+
   const handleRegister = (e) => {
     e.preventDefault();
     setError("");
     const form = e.target;
+    const displayName = form.displayName.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
     if (password === confirmPassword) {
       createUser(email, password)
         .then(() => {
-          navigate(from, { replace: true });
+          const userInfo = {
+            displayName,
+            photoURL: img,
+          };
+          updateUser(userInfo)
+            .then(() => {
+              // Profile updated!
+              navigate(from, { replace: true });
+            })
+            .catch((error) => {
+              // An error occurred
+              console.log(error);
+            });
         })
         .catch((err) => {
           setError(err.code);
@@ -40,6 +71,29 @@ const Register = () => {
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
             {error && <p className="text-red-500 text-center">{error}</p>}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Your Image</span>
+              </label>
+              <input
+                type="file"
+                onChange={handleImgUpload}
+                className="input"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Your Name</span>
+              </label>
+              <input
+                type="text"
+                name="displayName"
+                placeholder="Your Name"
+                className="input input-bordered"
+                required
+              />
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
