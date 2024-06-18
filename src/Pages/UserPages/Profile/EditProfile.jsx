@@ -55,7 +55,7 @@ const EditProfile = () => {
       )
         .then((response) => response.json())
         .then((data) => {
-          if (data.modifiedCount >0 || data.matchedCount > 0) {
+          if (data.modifiedCount > 0) {
             toast.success("User Updated");
             navigate("/dashboard/profile");
           }
@@ -121,7 +121,6 @@ const EditProfile = () => {
                 defaultValue={loadedUser?.age}
                 placeholder="Your age"
                 className="input input-bordered"
-                required
               />
             </div>
             {/* description */}
