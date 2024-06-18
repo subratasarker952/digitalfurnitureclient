@@ -1,13 +1,14 @@
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const navigate = useNavigate();
   const [img, setImg] = useState("");
   const location = useLocation();
   const from = location?.state || "/";
-  const { user, createUser, error, setError, updateUser } = useAuth();
+  const { user, createUser, error, setError } = useAuth();
   if (user) {
     return <Navigate to={from}></Navigate>;
   }
@@ -37,12 +38,12 @@ const Register = () => {
     const confirmPassword = form.confirmPassword.value;
     if (password === confirmPassword) {
       createUser(email, password)
-        .then(() => {
+        .then((res) => {
           const userInfo = {
             displayName,
             photoURL: img,
           };
-          updateUser(userInfo)
+          updateProfile( res.user,userInfo)
             .then(() => {
               // Profile updated!
               navigate(from, { replace: true });

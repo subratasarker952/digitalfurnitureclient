@@ -7,7 +7,6 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
@@ -27,21 +26,22 @@ const AuthProvider = ({ children }) => {
         setUser(currentUser);
         // jwt from here
         // send to db from here
-        const userInfo = { email: currentUser?.email };
+        const userInfoJwt = { email: currentUser?.email};
         fetch("https://digitalfurnitureserver.vercel.app/jwt", {
           method: "POST",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
           },
-          body: JSON.stringify(userInfo),
+          body: JSON.stringify(userInfoJwt),
         })
-          .then((response) => response.json())
-          .then((data) => {
-            const token = data?.token;
-            if (token) {
-              localStorage.setItem("token", token);
-            }
-          });
+        .then((response) => response.json())
+        .then((data) => {
+          const token = data?.token;
+          if (token) {
+            localStorage.setItem("token", token);
+          }
+        });
+        const userInfo = { email: currentUser?.email , displayName:currentUser?.displayName , img:currentUser?.photoURL};
 
         fetch("https://digitalfurnitureserver.vercel.app/users", {
           method: "POST",
@@ -76,11 +76,6 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
   
-  const updateUser = (userInfo) => {
-    return updateProfile(auth.currentUser, userInfo)
-    
-  };
-  
   const passwordReset = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
@@ -102,7 +97,6 @@ const AuthProvider = ({ children }) => {
     setError,
     githubLogin,
     passwordReset,
-    updateUser
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

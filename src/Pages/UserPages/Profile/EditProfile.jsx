@@ -31,7 +31,7 @@ const EditProfile = () => {
     const age = parseInt(form.age.value);
     const description = form.description.value;
 
-    if (!displayName || !age || !img) {
+    if (!displayName || !age ) {
       toast.error("Please Provide Your Information");
       return;
     }
@@ -76,7 +76,6 @@ const EditProfile = () => {
                 type="file"
                 onChange={handleImgUpload}
                 className="input input-bordered"
-                required
               />
             </div>
             {/* email */}

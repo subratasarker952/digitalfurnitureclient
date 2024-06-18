@@ -30,20 +30,17 @@ const Profile = () => {
       <div className="text-center my-5">
         <div className=" md:flex  ">
           <div className="flex-1" >
-            {userInDb?.img && (
+         
               <img
                 className="h-[200px] w-[200px] mx-auto"
-                src={userInDb?.img}
+                src={userInDb?.img ||user?.photoURL}
                 alt={"User Img"}
               />
-            )}
-          </div>
+                   </div>
           <div className="flex-1 flex justify-center items-center text-xl">
             <div> 
-            <p>Email:- {userInDb?.email}</p>
-            {userInDb?.displayName && (
-              <p>displayName:- {userInDb?.displayName}</p>
-            )}
+            <p>Email:- {userInDb?.email ||user?.email}</p>
+              <p>Name:- {userInDb?.displayName ||user?.displayName}</p>
             {userInDb?.age && <p>age:- {userInDb?.age} Years</p>}
             {userInDb?.role && <p>Role:- {userInDb?.role}</p>}
             {userInDb?.description && (
