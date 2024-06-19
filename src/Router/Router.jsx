@@ -120,7 +120,7 @@ const router = createBrowserRouter([
         element: <MyProducts />,
       },
       {
-        path: "allProducts/:id",
+        path: "myProducts/:id",
         element: <SingleProduct />,
         loader: ({ params }) =>
           fetch(

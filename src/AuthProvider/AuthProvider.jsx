@@ -17,6 +17,7 @@ const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userInDb, setUserInDb] = useState(null);
   const [error, setError] = useState("");
   const [userLoading, setUserLoading] = useState(true);
 
@@ -26,7 +27,7 @@ const AuthProvider = ({ children }) => {
         setUser(currentUser);
         // jwt from here
         // send to db from here
-        const userInfoJwt = { email: currentUser?.email};
+        const userInfoJwt = { email: currentUser?.email };
         fetch("https://digitalfurnitureserver.vercel.app/jwt", {
           method: "POST",
           headers: {
@@ -34,14 +35,18 @@ const AuthProvider = ({ children }) => {
           },
           body: JSON.stringify(userInfoJwt),
         })
-        .then((response) => response.json())
-        .then((data) => {
-          const token = data?.token;
-          if (token) {
-            localStorage.setItem("token", token);
-          }
-        });
-        const userInfo = { email: currentUser?.email , displayName:currentUser?.displayName , img:currentUser?.photoURL};
+          .then((response) => response.json())
+          .then((data) => {
+            const token = data?.token;
+            if (token) {
+              localStorage.setItem("token", token);
+            }
+          });
+        const userInfo = {
+          email: currentUser?.email,
+          displayName: currentUser?.displayName,
+          img: currentUser?.photoURL,
+        };
 
         fetch("https://digitalfurnitureserver.vercel.app/users", {
           method: "POST",
@@ -75,7 +80,7 @@ const AuthProvider = ({ children }) => {
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  
+
   const passwordReset = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
@@ -97,6 +102,8 @@ const AuthProvider = ({ children }) => {
     setError,
     githubLogin,
     passwordReset,
+    userInDb,
+    setUserInDb,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
-  const { user, userLoading, logOutUser } = useAuth();
+  const { user, userLoading, logOutUser, userInDb } = useAuth();
   if (userLoading) return <p>Loading...</p>;
   const menu = (
     <>
@@ -18,7 +18,7 @@ const Navbar = () => {
       <NavLink className="px-3 text-xl capitalize m-1" to="/about">
         about
       </NavLink>
-       <NavLink className="px-3 text-xl capitalize m-1" to="/dashboard">
+      <NavLink className="px-3 text-xl capitalize m-1" to="/dashboard">
         dashboard
       </NavLink>
     </>
@@ -50,7 +50,9 @@ const Navbar = () => {
             {menu}
           </ul>
         </div>
-        <Link to='/' className=" text-2xl py-2 px-4 text-green-500">DF</Link>
+        <Link to="/" className=" text-2xl py-2 px-4 text-green-500">
+          DF
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{menu}</ul>
@@ -58,10 +60,22 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex gap-2 items-center">
-            <div className="w-10 h-10 rounded-full bg-red-500">
-              <img src={user?.photoURL} alt="User Image" />
+            <div className="w-10 h-10 rounded-full ">
+              <img
+                src={
+                  user?.photoURL
+                    ? user?.photoURL
+                    : userInDb?.Img
+                    ? userInDb?.img
+                    : "https://i.ibb.co/dP5hNpk/download.png"
+                }
+                alt="User"
+              />
             </div>
-            <button className="btn bg-red-500 text-white" onClick={() => logOutUser()}>
+            <button
+              className="btn bg-red-500 text-white"
+              onClick={() => logOutUser()}
+            >
               Logout
             </button>
           </div>

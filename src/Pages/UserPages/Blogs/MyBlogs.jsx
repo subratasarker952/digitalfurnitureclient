@@ -12,7 +12,7 @@ const MyBlogs = () => {
   }, [blogs, user]);
   return (
     <div>
-      <p className="text-center">Your Added Blogs length {blogs.length}</p>
+      <p className="text-center text-green-500">Your Added Blogs length {blogs.length}</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {blogs &&
           blogs.map((blog) => (

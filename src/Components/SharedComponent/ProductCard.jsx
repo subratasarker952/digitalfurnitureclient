@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
           {/* <p>{description}</p> */}
           <div className="card-actions">
             <Link
-              to={`/dashboard/allProducts/${_id}`}
+              to={`/dashboard/myProducts/${_id}`}
               className="btn btn-primary"
             >
               Details

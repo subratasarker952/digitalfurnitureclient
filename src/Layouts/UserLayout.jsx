@@ -26,27 +26,27 @@ const UserLayout = () => {
       </NavLink>
       <NavLink
         className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
-        to="myProducts"
-      >
-        My Products
-      </NavLink>
-      <NavLink
-        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="createBlog"
       >
         Add Blog
       </NavLink>
       <NavLink
         className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
-        to="blogs"
-      >
-        My Blogs
-      </NavLink>
-      <NavLink
-        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
         to="createReview"
       >
         Add Review
+      </NavLink>
+      <NavLink
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        to="myProducts"
+      >
+        My Products
+      </NavLink>
+      <NavLink
+        className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
+        to="blogs"
+      >
+        My Blogs
       </NavLink>
       <NavLink
         className=" capitalize hover:rounded-full p-2 text-center m-1 hover:bg-green-500 active:bg-black  hover:text-white"
@@ -92,7 +92,7 @@ const UserLayout = () => {
             </div>
             <div className="flex-1 text-green-500 text-3xl">
               <NavLink
-                className=" capitalize hover:bg-green-500"
+                className=" capitalize"
                 to="/"
               >
                 DF

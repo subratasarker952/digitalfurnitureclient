@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Profile = () => {
-  const { user, passwordReset } = useAuth();
+  const { user, passwordReset,userInDb, setUserInDb } = useAuth();
   const [disabled, setDisabled] = useState(false);
-  const [userInDb, setUserInDb] = useState(null);
   useEffect(() => {
     fetch(`https://digitalfurnitureserver.vercel.app/users/${user?.email}`)
       .then((response) => response.json())
       .then((json) => setUserInDb(json));
-  }, [user]);
+  }, [user, setUserInDb]);
   const handlePasswordReset = () => {
     const sure = window.confirm("Are You Sure? Change Your Password?");
     if (sure) {

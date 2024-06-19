@@ -26,12 +26,15 @@ const EditProfile = () => {
 
   const handleForm = async (e) => {
     e.preventDefault();
+    if (!img) {
+      setImg("https://i.ibb.co/dP5hNpk/download.png");
+    }
     const form = e.target;
     const displayName = form.displayName.value;
     const age = parseInt(form.age.value);
     const description = form.description.value;
 
-    if (!displayName || !age ) {
+    if (!displayName || !age) {
       toast.error("Please Provide Your Information");
       return;
     }
@@ -55,7 +58,7 @@ const EditProfile = () => {
       )
         .then((response) => response.json())
         .then((data) => {
-          if (data.modifiedCount > 0) {
+          if (data.modifiedCount > 0 || data.matchedCount > 0) {
             toast.success("User Updated");
             navigate("/dashboard/profile");
           }
@@ -72,11 +75,7 @@ const EditProfile = () => {
               <label className="label">
                 <span className="label-text">Select A Picture</span>
               </label>
-              <input
-                type="file"
-                onChange={handleImgUpload}
-                className="input input-bordered"
-              />
+              <input type="file" onChange={handleImgUpload} className="" />
             </div>
             {/* email */}
             <div className="form-control">
