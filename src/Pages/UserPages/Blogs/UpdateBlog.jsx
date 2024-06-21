@@ -39,7 +39,7 @@ const UpdateBlog = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.modifiedCount>0) {
+          if (data.modifiedCount>0 || data.matchedCount > 0) {
             toast.success("blog update");
             navigate("/dashboard/blogs")
             form.reset();
@@ -53,7 +53,7 @@ const UpdateBlog = () => {
     <div>
       <div className="my-10">
         <div className="card shrink-0 w-full max-w-lg mx-auto shadow-2xl bg-base-100">
-          <h2 className=" mt-2 text-3xl text-center">Eidt Blog</h2>
+          <h2 className=" mt-2 text-3xl text-center">Edit Blog</h2>
           <form className="card-body" onSubmit={handleForm}>
             {/* title */}
             <div className="form-control">

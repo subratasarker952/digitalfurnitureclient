@@ -60,7 +60,7 @@ const UpdateReview = () => {
 
             <div className="form-control mt-6">
               <button
-                onClick={handleForm}
+           
                 className="btn btn-primary"
                 type="submit"
               >
